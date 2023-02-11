@@ -11,13 +11,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(19, 19, 19, 1),
+      backgroundColor: const Color.fromRGBO(19, 19, 19, 1),
       body: Column(
         children: [
           Expanded(
             flex: 7,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             flex: 3,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                         height: 60,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Get Starred',
                             style: TextStyle(
