@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_turkish_food_app_ui/pages/first_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,9 +23,37 @@ class _HomePageState extends State<HomePage> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                    Color.fromARGB(255, 52, 52, 52),
+                    Color.fromARGB(255, 42, 42, 42),
                     Color.fromARGB(255, 23, 23, 23),
                   ])),
+              child: Stack(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 40),
+                    child: Container(
+                      alignment: Alignment.bottomCenter,
+                      child: SizedBox(
+                        height: 270,
+                        child: Image.asset('assets/png/kkp.png'),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: SizedBox(
+                      height: 250,
+                      child: Image.asset('assets/png/k.png'),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.topRight,
+                    child: SizedBox(
+                      height: 225,
+                      child: Image.asset('assets/png/p.png'),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           //--------------------------------------------------------------------
@@ -47,13 +76,13 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       "The Fastest in Delivery Food",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(
-                              color: const Color.fromARGB(255, 244, 244, 244),
-                              fontWeight: FontWeight.w700,
-                              fontSize: 30),
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: const Color.fromARGB(255, 244, 244, 244),
+                                fontWeight: FontWeight.w700,
+                                fontSize: 30,
+                                fontFamily: 'SecularOne',
+                              ),
                     ),
                   ),
                   SizedBox(
@@ -61,14 +90,22 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       "Our job is to filling your tummy with delicious food and fast delivery",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
                             color: const Color.fromARGB(255, 184, 184, 184),
-                            fontWeight: FontWeight.w500,
+                            fontFamily: 'SecularOne',
                           ),
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const FirstPage();
+                          },
+                        ),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(
                           left: 30, right: 30, bottom: 30, top: 10),
@@ -80,8 +117,8 @@ class _HomePageState extends State<HomePage> {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Color.fromARGB(255, 240, 55, 117),
-                              Color.fromARGB(255, 206, 12, 77)
+                              Color.fromARGB(255, 240, 55, 55),
+                              Color.fromARGB(255, 241, 19, 19)
                             ],
                           ),
                         ),
@@ -89,9 +126,9 @@ class _HomePageState extends State<HomePage> {
                           child: Text(
                             'Get Starred',
                             style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
                               color: Colors.white,
+                              fontFamily: 'SecularOne',
                             ),
                           ),
                         ),
