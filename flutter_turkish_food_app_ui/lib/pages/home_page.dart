@@ -12,122 +12,217 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 22, 22, 22),
+      backgroundColor: ProjectColor().backgroundColor,
       body: Column(
         children: [
           Expanded(
             flex: 7,
             child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 40),
-                  child: Container(
-                    alignment: Alignment.bottomCenter,
-                    child: SizedBox(
-                      child: Image.asset(
-                        'assets/png/kp.png',
-                      ),
-                    ),
-                  ),
+              children: const [
+                HomePageImage(
+                  imageHeight: 470,
+                  mainImage: 'assets/png/kp.png',
+                  imageAligment: Alignment.bottomCenter,
                 ),
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: SizedBox(
-                    height: 250,
-                    child: Image.asset('assets/png/k.png'),
-                  ),
+                HomePageImage(
+                  imageHeight: 250,
+                  mainImage: 'assets/png/k.png',
+                  imageAligment: Alignment.topLeft,
                 ),
-                Container(
-                  alignment: Alignment.topRight,
-                  child: SizedBox(
-                    height: 225,
-                    child: Image.asset(
-                      'assets/png/p.png',
-                    ),
-                  ),
+                HomePageImage(
+                  imageHeight: 225,
+                  mainImage: 'assets/png/p.png',
+                  imageAligment: Alignment.topRight,
                 ),
               ],
             ),
           ),
-          //--------------------------------------------------------------------
           Expanded(
             flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    child: Text(
-                      "The Fastest in Delivery Food",
-                      textAlign: TextAlign.center,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: const Color.fromARGB(255, 244, 244, 244),
-                                fontWeight: FontWeight.w700,
-                                fontSize: 40,
-                                fontFamily: 'SecularOne',
-                              ),
-                    ),
-                  ),
-                  SizedBox(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        "Our job is to filling your tummy with delicious food and fast delivery",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                              color: const Color.fromARGB(255, 184, 184, 184),
-                              fontFamily: 'SecularOne',
-                              fontSize: 16,
-                            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomText(
+                  textPadding: ProjectPaddding().textHeadPadding,
+                  headText: ProjectText().headTextHP,
+                  textColor: ProjectColor().textHeadColor,
+                  textWeight: FontWeight.w700,
+                  fontSize: 30,
+                ),
+                CustomText(
+                  textPadding: ProjectPaddding().projectTextPadding,
+                  headText: ProjectText().text,
+                  textColor: ProjectColor().textColor,
+                  fontSize: 16,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const FirstPage();
+                        },
                       ),
-                    ),
+                    );
+                  },
+                  child: Button(
+                    buttonPadding: ProjectPaddding().buttonPadding,
+                    buttonHeight: 60,
+                    buttonCircular: CustomBorderRadius().buttonCircular,
+                    buttonColor: ProjectColor().textHeadColor,
+                    buttonDownColor: GradietButtonColor().downColor,
+                    buttonUpColor: GradietButtonColor().upColor,
+                    buttonText: ProjectText().buttonText,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const FirstPage();
-                          },
-                        ),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromARGB(255, 240, 55, 55),
-                              Color.fromARGB(255, 241, 19, 19)
-                            ],
-                          ),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Get Starred',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.white,
-                              fontFamily: 'SecularOne',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
       ),
     );
   }
+}
+
+class Button extends StatelessWidget {
+  const Button({
+    super.key,
+    required this.buttonPadding,
+    required this.buttonHeight,
+    required this.buttonUpColor,
+    required this.buttonDownColor,
+    required this.buttonCircular,
+    required this.buttonText,
+    required this.buttonColor,
+  });
+
+  final EdgeInsets buttonPadding;
+  final double buttonHeight;
+  final Color buttonUpColor;
+  final Color buttonDownColor;
+  final BorderRadius buttonCircular;
+  final String buttonText;
+  final Color buttonColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: buttonPadding,
+      child: Container(
+        height: buttonHeight,
+        decoration: BoxDecoration(
+          borderRadius: buttonCircular,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              buttonUpColor,
+              buttonDownColor,
+            ],
+          ),
+        ),
+        child: Center(
+          child: Text(
+            buttonText,
+            style: TextStyle(
+              color: buttonColor,
+              fontFamily: FontFamily().fontFamily,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomText extends StatelessWidget {
+  const CustomText({
+    super.key,
+    required this.headText,
+    required this.textColor,
+    required this.fontSize,
+    required this.textPadding,
+    this.textWeight,
+  });
+
+  final String headText;
+  final Color textColor;
+  final FontWeight? textWeight;
+  final double fontSize;
+  final EdgeInsets textPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Padding(
+        padding: textPadding,
+        child: Text(
+          headText,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                color: textColor,
+                fontWeight: textWeight,
+                fontSize: fontSize,
+                fontFamily: FontFamily().fontFamily,
+              ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomePageImage extends StatelessWidget {
+  const HomePageImage({
+    super.key,
+    required this.mainImage,
+    required this.imageAligment,
+    this.imageHeight,
+  });
+
+  final String mainImage;
+  final Alignment imageAligment;
+  final double? imageHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: imageHeight,
+      alignment: imageAligment,
+      child: Image.asset(mainImage),
+    );
+  }
+}
+
+class ProjectPaddding {
+  final EdgeInsets textHeadPadding = const EdgeInsets.symmetric(horizontal: 50);
+  final EdgeInsets projectTextPadding =
+      const EdgeInsets.symmetric(horizontal: 20);
+  final EdgeInsets buttonPadding =
+      const EdgeInsets.only(left: 20, right: 20, bottom: 50);
+}
+
+class ProjectColor {
+  final Color backgroundColor = const Color.fromARGB(255, 18, 18, 18);
+  final Color textHeadColor = const Color.fromARGB(255, 244, 244, 244);
+  final Color textColor = const Color.fromARGB(255, 184, 184, 184);
+}
+
+class GradietButtonColor {
+  final Color upColor = Color.fromARGB(255, 240, 55, 55);
+  final Color downColor = Color.fromARGB(255, 241, 19, 19);
+}
+
+class ProjectText {
+  final String buttonText = 'Get Starred';
+  final String headTextHP = "The Fastest in Delivery Food";
+  final String text =
+      "Our job is to filling your tummy with delicious food and fast delivery";
+}
+
+class FontFamily {
+  final String fontFamily = 'Roboto';
+}
+
+class CustomBorderRadius {
+  final BorderRadius buttonCircular = BorderRadius.circular(20);
 }
