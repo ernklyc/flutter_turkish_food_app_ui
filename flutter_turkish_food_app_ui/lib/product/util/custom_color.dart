@@ -4,7 +4,7 @@ class ProjectColor {
   final Color backgroundColor = const Color.fromARGB(255, 18, 18, 18);
   final Color textHeadColor = const Color.fromARGB(255, 244, 244, 244);
   final Color textColor = const Color.fromARGB(255, 184, 184, 184);
-  final Color bottomIconColor = Color.fromARGB(255, 128, 127, 127);
+  final Color bottomIconColor = const Color.fromARGB(255, 128, 127, 127);
 
 }
 

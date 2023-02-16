@@ -13,47 +13,15 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ProjectColor().backgroundColor,
-      /*appBar: AppBar(
-        backgroundColor: ProjectColor().backgroundColor,
-        elevation: 0,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: Text(
-                "Welcome",
-                style: TextStyle(fontSize: 15),
-              ),
-            ),
-            Text(
-              "Eren KALAYCI",
-              style: TextStyle(fontSize: 17),
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            iconSize: 30,
-            onPressed: () {},
-            icon: CircleAvatar(
-              backgroundColor: GradietButtonColor().downColor,
-              child: Image.asset(
-                'assets/png/kp.png',
-              ),
-            ),
-          ),
-        ],
-      ),*/
       body: Column(
-        children: [],
+        children: const [],
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: ProjectColor().backgroundColor,
         selectedItemColor: GradietButtonColor().upColor,
         unselectedItemColor: ProjectColor().bottomIconColor,
-        iconSize: 28,
+        iconSize: 33,
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
