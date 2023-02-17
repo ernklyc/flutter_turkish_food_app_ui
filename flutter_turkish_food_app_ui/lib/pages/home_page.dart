@@ -65,13 +65,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const FirstPage();
-                        },
-                      ),
-                    );
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) {
+                        return FirstPage();
+                      },
+                    ));
                   },
                   child: Button(
                     buttonPadding: ProjectPaddding().buttonPadding,
