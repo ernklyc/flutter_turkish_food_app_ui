@@ -13,6 +13,6 @@ class GradietButtonColor {
 }
 
 class TextFieldColor {
-  final Color searachText = Color.fromARGB(255, 79, 79, 79);
+  final Color searachText = const Color.fromARGB(255, 79, 79, 79);
   final Color bg = const Color.fromARGB(255, 27, 27, 27);
 }
