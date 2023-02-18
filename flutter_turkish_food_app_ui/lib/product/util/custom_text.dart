@@ -22,15 +22,17 @@ class CustomText extends StatelessWidget {
     return SizedBox(
       child: Padding(
         padding: textPadding,
-        child: Text(
-          headText,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                color: textColor,
-                fontWeight: textWeight,
-                fontSize: fontSize,
-                fontFamily: FontFamily().fonts[0],
-              ),
+        child: SizedBox(
+          child: Text(
+            headText,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: textColor,
+                  fontWeight: textWeight,
+                  fontSize: fontSize,
+                  fontFamily: FontFamily().fonts[0],
+                ),
+          ),
         ),
       ),
     );

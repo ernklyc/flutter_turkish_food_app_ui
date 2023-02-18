@@ -12,6 +12,23 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  int _countValue = 0;
+
+  void _counterUpdate(bool isIncrement) {
+    if (isIncrement) {
+      setState(() {
+        _countValue += 1;
+      });
+    } else {
+      setState(() {
+        _countValue -= 1;
+      });
+      if (_countValue < 0) {
+        _countValue = 0;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +64,7 @@ class _FirstPageState extends State<FirstPage> {
               _CustomText(text: ProjectText().homePageTetx[4]),
               _categoriesButton(),
               _CustomText(text: ProjectText().homePageTetx[5]),
-              const _PopularsNowCard()
+              _counter(),
             ],
           ),
         ),
@@ -55,7 +72,8 @@ class _FirstPageState extends State<FirstPage> {
       bottomNavigationBar: const _BottomNavBar(),
     );
   }
-  //----------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------
 
   Text _categoriesText(BuildContext context) {
     return Text(
@@ -146,7 +164,202 @@ class _FirstPageState extends State<FirstPage> {
       ),
     );
   }
+
+  SizedBox _counter() {
+    return SizedBox(
+      height: 490,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 15, top: 15),
+            child: Container(
+              height: 490,
+              width: 270,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 28, 28, 28),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: RepaintBoundary(
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Image(
+                        image: AssetImage('assets/png/kp.png'),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _PopularsNowText(
+                                text: ProjectText().homePageTetx[6],
+                              ),
+                              _PopularsNowText(
+                                text: ProjectText().homePageTetx[7],
+                              ),
+                              _PopularsNowText(
+                                text: ProjectText().homePageTetx[8],
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            _counterUpdate(false);
+                          },
+                          child: Container(
+                            height: 30,
+                            width: 35,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  GradietButtonColor().upColor,
+                                  GradietButtonColor().downColor,
+                                ],
+                              ),
+                            ),
+                            child: const RepaintBoundary(
+                              child: Text(
+                                "-",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            _countValue.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: InkWell(
+                            onTap: () {
+                              _counterUpdate(true);
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    GradietButtonColor().upColor,
+                                    GradietButtonColor().downColor,
+                                  ],
+                                ),
+                              ),
+                              child: const RepaintBoundary(
+                                child: Text(
+                                  "+",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 30, horizontal: 8),
+                      child: Row(
+                        children: const [
+                          Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(Icons.star, color: Colors.yellow),
+                          ),
+                          Text("4.9", style: TextStyle(color: Colors.white)),
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.local_fire_department_rounded,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Text("328 Cal",
+                              style: TextStyle(color: Colors.white)),
+                          Spacer(),
+                          Padding(
+                            padding: EdgeInsets.only(right: 5),
+                            child: Icon(
+                              Icons.punch_clock,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          Text(
+                            "30 Min",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 255,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            GradietButtonColor().upColor,
+                            GradietButtonColor().downColor,
+                          ],
+                        ),
+                      ),
+                      child: RepaintBoundary(
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.save,
+                            size: 30,
+                            color: ProjectColor().textHeadColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
+
+//------------------------------------------------------------------------------
 
 class _FlitterButton extends StatelessWidget {
   const _FlitterButton();
@@ -295,93 +508,4 @@ class _BottomNavBar extends StatelessWidget {
   }
 }
 
-class _PopularsNowCard extends StatelessWidget {
-  const _PopularsNowCard();
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 350,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 15, top: 15),
-            child: Container(
-              height: 350,
-              width: 250,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 28, 28, 28),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: RepaintBoundary(
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Image(
-                        image: AssetImage('assets/png/kp.png'),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _PopularsNowText(
-                                text: ProjectText().homePageTetx[6],
-                              ),
-                              _PopularsNowText(
-                                text: ProjectText().homePageTetx[7],
-                              ),
-                              _PopularsNowText(
-                                text: ProjectText().homePageTetx[8],
-                              ),
-                            ],
-                          ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  GradietButtonColor().upColor,
-                                  GradietButtonColor().downColor,
-                                ],
-                              ),
-                            ),
-                            child: RepaintBoundary(
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.save,
-                                  size: 30,
-                                  color: ProjectColor().textHeadColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
+//------------------------------------------------------------------------------

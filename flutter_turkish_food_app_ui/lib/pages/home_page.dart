@@ -50,12 +50,15 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomText(
-                  textPadding: ProjectPaddding().textHeadPadding,
-                  headText: ProjectText().homePageTetx[1],
-                  textColor: ProjectColor().textHeadColor,
-                  textWeight: FontWeight.w700,
-                  fontSize: 30,
+                SizedBox(
+                  width: 350,
+                  child: CustomText(
+                    textPadding: ProjectPaddding().textHeadPadding,
+                    headText: ProjectText().homePageTetx[1],
+                    textColor: ProjectColor().textHeadColor,
+                    textWeight: FontWeight.w700,
+                    fontSize: 35,
+                  ),
                 ),
                 CustomText(
                   textPadding: ProjectPaddding().projectTextPadding,
