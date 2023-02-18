@@ -38,7 +38,7 @@ class _FirstPageState extends State<FirstPage> {
             ),
             const Spacer(),
             CircleAvatar(
-              radius: 23,
+              radius: 20,
               backgroundColor: GradietButtonColor().upColor,
               foregroundImage: const AssetImage('assets/png/eren.png'),
             ),
