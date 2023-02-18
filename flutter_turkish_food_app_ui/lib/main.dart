@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_turkish_food_app_ui/pages/first_page.dart';
-import 'package:flutter_turkish_food_app_ui/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const FirstPage(),
     );
   }
 }

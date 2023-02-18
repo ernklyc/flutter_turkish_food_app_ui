@@ -48,106 +48,278 @@ class _FirstPageState extends State<FirstPage> {
       backgroundColor: ProjectColor().backgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(14.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "What wold you like to eat",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium
-                  ?.copyWith(color: ProjectColor().textHeadColor),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 5,
-                    child: TextField(
-                      style: TextStyle(
-                        color: ProjectColor().textColor,
-                      ),
-                      cursorColor: ProjectColor().textColor,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 27, 27, 27),
-                        hintText: "Find the food you like",
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 79, 79, 79),
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "What wold you like to eat",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(color: ProjectColor().textHeadColor),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 5,
+                      child: TextField(
+                        style: TextStyle(
+                          color: ProjectColor().textColor,
                         ),
-                        prefixIcon: Icon(Icons.search),
-                        prefixIconColor: Color.fromARGB(255, 79, 79, 79),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Expanded(
-                      flex: 1,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: GradietButtonColor().upColor,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.settings,
-                            size: 35,
-                            color: ProjectColor().textHeadColor,
+                        cursorColor: ProjectColor().textColor,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 27, 27, 27),
+                          hintText: "Find the food you like",
+                          hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 79, 79, 79),
+                          ),
+                          prefixIcon: const Icon(Icons.search),
+                          prefixIconColor:
+                              const Color.fromARGB(255, 79, 79, 79),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide.none,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Expanded(
+                        flex: 1,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                GradietButtonColor().upColor,
+                                GradietButtonColor().downColor,
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.settings,
+                              size: 30,
+                              color: ProjectColor().textHeadColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Row(
-              children: [],
-            ),
-          ],
+              Text(
+                "Catogories",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(color: ProjectColor().textHeadColor),
+              ),
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: 5,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              height: 55,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: GradietButtonColor().upColor,
+                                borderRadius: BorderRadius.circular(20),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    GradietButtonColor().upColor,
+                                    GradietButtonColor().downColor,
+                                  ],
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      'assets/png/kp.png',
+                                      height: 40,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      "Pide",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              color:
+                                                  ProjectColor().textHeadColor),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              Text(
+                "Catogories",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineSmall
+                    ?.copyWith(color: ProjectColor().textHeadColor),
+              ),
+              Container(
+                height: 350,
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 15, top: 15),
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 28, 28, 28),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Image(
+                                image: AssetImage('assets/png/kp.png'),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Pide With",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                              color:
+                                                  ProjectColor().textHeadColor,
+                                            ),
+                                      ),
+                                      Text(
+                                        "Extra Ground Beef",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                              color:
+                                                  ProjectColor().textHeadColor,
+                                            ),
+                                      ),
+                                      Text(
+                                        "30 Min | 1 Service",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge
+                                            ?.copyWith(
+                                              color: ProjectColor().textColor,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                const Spacer(),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10),
+                                  child: Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        gradient: LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            GradietButtonColor().upColor,
+                                            GradietButtonColor().downColor,
+                                          ],
+                                        ),
+                                      ),
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.save,
+                                          size: 30,
+                                          color: ProjectColor().textHeadColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
         backgroundColor: ProjectColor().backgroundColor,
         selectedItemColor: GradietButtonColor().upColor,
         unselectedItemColor: ProjectColor().bottomIconColor,
-        iconSize: 30,
+        iconSize: 25,
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Icon(Icons.home),
-            ),
-            label: "",
+            icon: Icon(Icons.home),
+            label: "HOME",
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Icon(Icons.search),
-            ),
-            label: "",
+            icon: Icon(Icons.search),
+            label: "SEARCH",
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Icon(Icons.save),
-            ),
-            label: "",
+            icon: Icon(Icons.save),
+            label: "SAVES",
           ),
           BottomNavigationBarItem(
-            icon: Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Icon(Icons.settings),
-            ),
-            label: "",
+            icon: Icon(Icons.settings),
+            label: "SETTİNGS",
           ),
         ],
       ),
