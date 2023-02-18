@@ -46,10 +46,10 @@ class _FirstPageState extends State<FirstPage> {
         ),
       ),
       backgroundColor: ProjectColor().backgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(14.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -65,7 +65,6 @@ class _FirstPageState extends State<FirstPage> {
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 5,
                       child: TextField(
                         style: TextStyle(
                           color: ProjectColor().textColor,
@@ -90,20 +89,21 @@ class _FirstPageState extends State<FirstPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
-                      child: Expanded(
-                        flex: 1,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                GradietButtonColor().upColor,
-                                GradietButtonColor().downColor,
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              GradietButtonColor().upColor,
+                              GradietButtonColor().downColor,
+                            ],
                           ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: RepaintBoundary(
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
@@ -153,16 +153,18 @@ class _FirstPageState extends State<FirstPage> {
                                   ],
                                 ),
                               ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Image.asset(
-                                      'assets/png/kp.png',
-                                      height: 40,
+                              child: RepaintBoundary(
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 15),
+                                      child: Image.asset(
+                                        'assets/png/kp.png',
+                                        height: 40,
+                                      ),
                                     ),
-                                  ),
-                                  Expanded(
-                                    child: Text(
+                                    Text(
                                       "Pide",
                                       style: Theme.of(context)
                                           .textTheme
@@ -171,8 +173,8 @@ class _FirstPageState extends State<FirstPage> {
                                               color:
                                                   ProjectColor().textHeadColor),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -189,7 +191,7 @@ class _FirstPageState extends State<FirstPage> {
                     .headlineSmall
                     ?.copyWith(color: ProjectColor().textHeadColor),
               ),
-              Container(
+              SizedBox(
                 height: 350,
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -199,67 +201,69 @@ class _FirstPageState extends State<FirstPage> {
                     return Padding(
                       padding: const EdgeInsets.only(right: 15, top: 15),
                       child: Container(
+                        height: 350,
                         width: 250,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 28, 28, 28),
+                          color: const Color.fromARGB(255, 28, 28, 28),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Column(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Image(
-                                image: AssetImage('assets/png/kp.png'),
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10, right: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Pide With",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelLarge
-                                            ?.copyWith(
-                                              color:
-                                                  ProjectColor().textHeadColor,
-                                            ),
-                                      ),
-                                      Text(
-                                        "Extra Ground Beef",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelLarge
-                                            ?.copyWith(
-                                              color:
-                                                  ProjectColor().textHeadColor,
-                                            ),
-                                      ),
-                                      Text(
-                                        "30 Min | 1 Service",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .labelLarge
-                                            ?.copyWith(
-                                              color: ProjectColor().textColor,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                        child: RepaintBoundary(
+                          child: Column(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Image(
+                                  image: AssetImage('assets/png/kp.png'),
                                 ),
-                                const Spacer(),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10, right: 10),
-                                  child: Expanded(
-                                    flex: 1,
+                              ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, right: 10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Pide With",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelLarge
+                                              ?.copyWith(
+                                                color: ProjectColor()
+                                                    .textHeadColor,
+                                              ),
+                                        ),
+                                        Text(
+                                          "Extra Ground Beef",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelLarge
+                                              ?.copyWith(
+                                                color: ProjectColor()
+                                                    .textHeadColor,
+                                              ),
+                                        ),
+                                        Text(
+                                          "30 Min | 1 Service",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelLarge
+                                              ?.copyWith(
+                                                color: ProjectColor().textColor,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, right: 10),
                                     child: Container(
+                                      height: 50,
+                                      width: 50,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
                                         gradient: LinearGradient(
@@ -271,20 +275,22 @@ class _FirstPageState extends State<FirstPage> {
                                           ],
                                         ),
                                       ),
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.save,
-                                          size: 30,
-                                          color: ProjectColor().textHeadColor,
+                                      child: RepaintBoundary(
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.save,
+                                            size: 30,
+                                            color: ProjectColor().textHeadColor,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -297,11 +303,11 @@ class _FirstPageState extends State<FirstPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        selectedFontSize: 10,
-        unselectedFontSize: 10,
         backgroundColor: ProjectColor().backgroundColor,
         selectedItemColor: GradietButtonColor().upColor,
         unselectedItemColor: ProjectColor().bottomIconColor,
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
         iconSize: 25,
         elevation: 0,
         items: const [
