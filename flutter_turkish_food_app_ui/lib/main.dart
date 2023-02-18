@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turkish_food_app_ui/pages/home_page.dart';
+import 'package:flutter_turkish_food_app_ui/pages/first_page.dart';
+import 'package:flutter_turkish_food_app_ui/pages/order_page.dart';
 import 'package:flutter_turkish_food_app_ui/product/util/custom_color.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const FirstPage(),
     );
   }
 }

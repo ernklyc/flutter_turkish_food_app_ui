@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_turkish_food_app_ui/pages/order_page.dart';
 import 'package:flutter_turkish_food_app_ui/product/lang/langue_item.dart';
 import 'package:flutter_turkish_food_app_ui/product/util/custom_color.dart';
 
@@ -149,9 +150,7 @@ class _FirstPageState extends State<FirstPage> {
 }
 
 class _FlitterButton extends StatelessWidget {
-  const _FlitterButton({
-    super.key,
-  });
+  const _FlitterButton();
 
   @override
   Widget build(BuildContext context) {
@@ -195,9 +194,7 @@ class _FlitterButton extends StatelessWidget {
 }
 
 class _TextField extends StatelessWidget {
-  const _TextField({
-    super.key,
-  });
+  const _TextField();
 
   @override
   Widget build(BuildContext context) {
@@ -247,7 +244,6 @@ class _CustomText extends StatelessWidget {
 
 class _PopularsNowText extends StatelessWidget {
   const _PopularsNowText({
-    super.key,
     required this.text,
   });
 
@@ -301,9 +297,7 @@ class _BottomNavBar extends StatelessWidget {
 }
 
 class _PopularsNowCard extends StatelessWidget {
-  const _PopularsNowCard({
-    super.key,
-  });
+  const _PopularsNowCard();
 
   @override
   Widget build(BuildContext context) {
@@ -370,7 +364,13 @@ class _PopularsNowCard extends StatelessWidget {
                             ),
                             child: RepaintBoundary(
                               child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      return const OrderPage();
+                                    },
+                                  ));
+                                },
                                 icon: Icon(
                                   Icons.save,
                                   size: 30,
