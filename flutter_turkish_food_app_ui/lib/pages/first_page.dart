@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_turkish_food_app_ui/pages/order_page.dart';
 import 'package:flutter_turkish_food_app_ui/product/lang/langue_item.dart';
 import 'package:flutter_turkish_food_app_ui/product/util/custom_color.dart';
 
@@ -364,13 +363,7 @@ class _PopularsNowCard extends StatelessWidget {
                             ),
                             child: RepaintBoundary(
                               child: IconButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) {
-                                      return const OrderPage();
-                                    },
-                                  ));
-                                },
+                                onPressed: () {},
                                 icon: Icon(
                                   Icons.save,
                                   size: 30,
