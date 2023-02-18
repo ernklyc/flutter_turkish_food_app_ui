@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_turkish_food_app_ui/pages/home_page.dart';
+import 'package:flutter_turkish_food_app_ui/product/util/custom_color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Foot App',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          backgroundColor: ProjectColor().backgroundColor,
+        ),
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
