@@ -73,7 +73,7 @@ class _FirstPageState extends State<FirstPage> {
     );
   }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
   Text _categoriesText(BuildContext context) {
     return Text(
@@ -341,7 +341,7 @@ class _FirstPageState extends State<FirstPage> {
                         child: IconButton(
                           onPressed: () {},
                           icon: Icon(
-                            Icons.save,
+                            Icons.shopping_basket_rounded,
                             size: 30,
                             color: ProjectColor().textHeadColor,
                           ),
@@ -496,7 +496,7 @@ class _BottomNavBar extends StatelessWidget {
           label: "SEARCH",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.save),
+          icon: Icon(Icons.shopping_basket_rounded),
           label: "SAVES",
         ),
         BottomNavigationBarItem(
