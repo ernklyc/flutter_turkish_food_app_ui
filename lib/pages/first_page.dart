@@ -286,11 +286,11 @@ class _FirstPageState extends State<FirstPage> {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
                           vertical: 30, horizontal: 8),
                       child: Row(
-                        children: const [
+                        children: [
                           Padding(
                             padding: EdgeInsets.only(right: 5),
                             child: Icon(Icons.star, color: Colors.yellow),
